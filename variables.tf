@@ -1,6 +1,7 @@
 variable "name" { }
 variable "subnets" { }
-variable "security_groups" { description = "VPC Security Group IDs" }
+variable "source_sgs" { }
+variable "vpc_id" { }
 variable "instance_type" { default = "cache.t2.micro" }
 variable "port" { default = "6379" }
 variable "engine" { default = "redis" }
