@@ -6,12 +6,12 @@ Spins up an ElastiCache cluster (defaults to Redis 2.8.19)
 
 ```
 module "elasticache" {
-  source 		 = "git::ssh://git@gogs.bashton.net:Bashton-Terraform-Modules/tf-aws-elasticache.git"
+  source      = "git::ssh://git@gogs.bashton.net:Bashton-Terraform-Modules/tf-aws-elasticache.git"
 
-  name 			 = "elaticache-cluster"
-  subnets 	 = "172.16.0.0/24,172.16.0.1/24,172.16.0.2/24"
-  source_sgs = "sg-00000000"
-  vpc_id 		 = "vpc-00000000"
+  name        = "elaticache-cluster"
+  subnets     = "172.16.0.0/24,172.16.0.1/24,172.16.0.2/24"
+  source_sgs  = "sg-00000000"
+  vpc_id      = "vpc-00000000"
 
 }
 ```
@@ -30,19 +30,12 @@ subnet group made up of the `subnets` variable.
 `vpc_id` - ID of the VPC to create the cluster in  
 `instance_type` - Instance type to use (defaults to t2.micro)  
 `port` - Engine port to use (defaults to 6379)  
-`engine` - Engine to use (defaults to Redis)
-	Valid values:  
-	- `redis`  
-	- `memcached`  
+`engine` - Engine to use `redis` or `memcached` (defaults to Redis)  
 `engine_version` - Engine version to use (defaults to 2.8.19)  
 `parameter_group` - Parameter group to use (defaults to default.redis2.8)  
 `cache_nodes` - Number of cache nodes (defaults to 1)  
 
 ## Outputs  
-`endpoint` - List of node objects:
-	- `id`  
-	- `address`  
-	- `port`  
-	- `az`  
+`endpoint` - List of node objects (`id`, `address`, `port`,`az`)
 `node_address` - Node address  
 `memcached_endpoint` - Memcached endpoint (not available with Redis engine)  
