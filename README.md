@@ -30,7 +30,7 @@ subnet group made up of the `subnets` variable.
 `vpc_id` - ID of the VPC to create the cluster in  
 `instance_type` - Instance type to use (defaults to t2.micro)  
 `port` - Engine port to use (defaults to 6379)  
-`engine` - Engine to use (defaults to Redis)  
+`engine` - Engine to use (defaults to Redis)
 	Valid values:  
 	- `redis`  
 	- `memcached`  
@@ -39,7 +39,7 @@ subnet group made up of the `subnets` variable.
 `cache_nodes` - Number of cache nodes (defaults to 1)  
 
 ## Outputs  
-`endpoint` - List of node objects:  
+`endpoint` - List of node objects:
 	- `id`  
 	- `address`  
 	- `port`  
