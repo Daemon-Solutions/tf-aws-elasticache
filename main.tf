@@ -1,16 +1,14 @@
 resource "aws_security_group" "elasticache" {
-
-  name = "${var.name}"
+  name        = "${var.name}"
   description = "Elasticache security group ${var.name}"
-  vpc_id = "${var.vpc_id}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
-    from_port = "${var.port}"
-    to_port   = "${var.port}"
+    from_port       = "${var.port}"
+    to_port         = "${var.port}"
     security_groups = ["${split(",", var.source_sgs)}"]
-    protocol = "tcp"
+    protocol        = "tcp"
   }
-
 }
 
 resource "aws_elasticache_subnet_group" "main" {
@@ -29,5 +27,8 @@ resource "aws_elasticache_cluster" "elasticache" {
   parameter_group_name = "${var.parameter_group}"
   subnet_group_name    = "${aws_elasticache_subnet_group.main.name}"
   security_group_ids   = ["${aws_security_group.elasticache.id}"]
-  tags                 { Name = "${var.name}" }
+
+  tags {
+    Name = "${var.name}"
+  }
 }
