@@ -36,6 +36,6 @@ subnet group made up of the `subnets` variable.
 `cache_nodes` - Number of cache nodes (defaults to 1)  
 
 ## Outputs  
-`endpoint` - List of node objects (`id`, `address`, `port`,`az`)
+`endpoint` - List of node objects (`id`, `address`, `port`,`az`)  
 `node_address` - Node address  
 `memcached_endpoint` - Memcached endpoint (not available with Redis engine)  
