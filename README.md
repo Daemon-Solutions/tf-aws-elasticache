@@ -24,25 +24,25 @@ will be via an instance in a VPC security group. The cluster is created in a
 subnet group made up of the `subnets` variable.
 
 ## Available Variables
-`name` - Name of the cluster
-`subnets` - Comma seperated list of subnets
-`source_sgs` - Comma sepearted list of security groups to access the cluster
-`vpc_id` - ID of the VPC to create the cluster in
-`instance_type` - Instance type to use (defaults to t2.micro)
-`port` - Engine port to use (defaults to 6379)
-`engine` - Engine to use (defaults to Redis)
-	Valid values:
-	- `redis`
-	- `memcached`
-`engine_version` - Engine version to use (defaults to 2.8.19)
-`parameter_group` - Parameter group to use (defaults to default.redis2.8)
-`cache_nodes` - Number of cache nodes (defaults to 1)
+`name` - Name of the cluster  
+`subnets` - Comma seperated list of subnets  
+`source_sgs` - Comma sepearted list of security groups to access the cluster  
+`vpc_id` - ID of the VPC to create the cluster in  
+`instance_type` - Instance type to use (defaults to t2.micro)  
+`port` - Engine port to use (defaults to 6379)  
+`engine` - Engine to use (defaults to Redis)  
+	Valid values:  
+	- `redis`  
+	- `memcached`  
+`engine_version` - Engine version to use (defaults to 2.8.19)  
+`parameter_group` - Parameter group to use (defaults to default.redis2.8)  
+`cache_nodes` - Number of cache nodes (defaults to 1)  
 
-## Outputs
-`endpoint` - List of node objects:
-	- `id`
-	- `address`
-	- `port`
-	- `az`
-`node_address` - Node address
-`memcached_endpoint` - Memcached endpoint (not available with Redis engine)
+## Outputs  
+`endpoint` - List of node objects:  
+	- `id`  
+	- `address`  
+	- `port`  
+	- `az`  
+`node_address` - Node address  
+`memcached_endpoint` - Memcached endpoint (not available with Redis engine)  
