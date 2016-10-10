@@ -1,10 +1,14 @@
+variable "vpc_id" {}
+
 variable "name" {}
 
-variable "subnets" {}
+variable "subnets" {
+  type = "list"
+}
 
-variable "source_sgs" {}
-
-variable "vpc_id" {}
+variable "source_sgs" {
+  type = "list"
+}
 
 variable "instance_type" {
   default = "cache.t2.micro"
@@ -19,7 +23,7 @@ variable "engine" {
 }
 
 variable "engine_version" {
-  default = "2.8.19"
+  default = "2.8.24"
 }
 
 variable "parameter_group" {
