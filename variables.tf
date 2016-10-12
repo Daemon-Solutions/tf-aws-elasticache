@@ -2,6 +2,14 @@ variable "vpc_id" {}
 
 variable "name" {}
 
+variable "owner" {}
+
+variable "envname" {}
+
+variable "r53_zone_id" {}
+
+variable "domain" {}
+
 variable "subnets" {
   type = "list"
 }
@@ -32,4 +40,20 @@ variable "parameter_group" {
 
 variable "cache_nodes" {
   default = "1"
+}
+
+variable "enable_elasticache_cluster" {
+  default = "1"
+}
+
+variable "enable_replication_group" {
+  default = "0"
+}
+
+variable "failover_enabled" {
+  default = "false"
+}
+
+variable "availability_zones" {
+  default = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
 }

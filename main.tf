@@ -18,6 +18,8 @@ resource "aws_elasticache_subnet_group" "main" {
 }
 
 resource "aws_elasticache_cluster" "elasticache" {
+  count = "${var.enable_elasticache_cluster}"
+
   cluster_id           = "${var.name}"
   engine               = "${var.engine}"
   engine_version       = "${var.engine_version}"
@@ -29,6 +31,47 @@ resource "aws_elasticache_cluster" "elasticache" {
   security_group_ids   = ["${aws_security_group.elasticache.id}"]
 
   tags {
-    Name = "${var.name}"
+    Name    = "${var.name}"
+    owner   = "${var.owner}"
+    envname = "${var.envname}"
   }
+}
+
+resource "aws_elasticache_replication_group" "elasticache_rep_group" {
+  count = "${var.enable_replication_group}"
+
+  replication_group_id          = "${var.envname}-elasticache"
+  replication_group_description = "Elasticache for ${var.envname}"
+  node_type                     = "${var.instance_type}"
+  number_cache_clusters         = "${var.cache_nodes}"
+  port                          = "${var.port}"
+  parameter_group_name          = "${var.parameter_group}"
+  subnet_group_name             = "${aws_elasticache_subnet_group.main.name}"
+  availability_zones            = ["${var.availability_zones}"]
+  automatic_failover_enabled    = "${var.failover_enabled}"
+  security_group_ids            = ["${aws_security_group.elasticache.id}"]
+
+  tags {
+    Name    = "${var.name}"
+    owner   = "${var.owner}"
+    envname = "${var.envname}"
+  }
+}
+
+resource "aws_route53_record" "elasticache" {
+  count   = "${var.enable_elasticache_cluster}"
+  zone_id = "${var.r53_zone_id}"
+  name    = "${var.name}.${var.domain}"
+  type    = "CNAME"
+  ttl     = "300"
+  records = ["${aws_elasticache_cluster.elasticache.cache_nodes}"]
+}
+
+resource "aws_route53_record" "elasticache_rep_group" {
+  count   = "${var.enable_replication_group}"
+  zone_id = "${var.r53_zone_id}"
+  name    = "${var.name}.${var.domain}"
+  type    = "CNAME"
+  ttl     = "300"
+  records = ["${aws_elasticache_replication_group.elasticache_rep_group.primary_endpoint_address}"]
 }
