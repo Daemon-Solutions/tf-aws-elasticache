@@ -6,7 +6,7 @@ resource "aws_security_group" "elasticache" {
   ingress {
     from_port       = "${var.port}"
     to_port         = "${var.port}"
-    security_groups = ["${split(",", var.source_sgs)}"]
+    security_groups = ["${var.source_sgs}"]
     protocol        = "tcp"
   }
 }
@@ -14,7 +14,7 @@ resource "aws_security_group" "elasticache" {
 resource "aws_elasticache_subnet_group" "main" {
   name        = "${var.name}"
   description = "Elasticache subnets for ${var.name}"
-  subnet_ids  = ["${split(",", var.subnets)}"]
+  subnet_ids  = ["${var.subnets}"]
 }
 
 resource "aws_elasticache_cluster" "elasticache" {
