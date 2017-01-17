@@ -1,6 +1,12 @@
 variable "vpc_id" {}
 
-variable "name" {}
+variable "name" { default = "test" }
+
+variable "cluster_id" { default = "clusteridname" }
+
+variable "ami" { 
+	default = "ami-787a320b"
+}
 
 variable "subnets" {
   type = "list"
@@ -11,7 +17,7 @@ variable "source_sgs" {
 }
 
 variable "instance_type" {
-  default = "cache.t2.micro"
+  default = "cache.m3.medium"
 }
 
 variable "port" {
@@ -32,4 +38,11 @@ variable "parameter_group" {
 
 variable "cache_nodes" {
   default = "1"
+}
+
+variable "snapshot_window" { 
+  default = "01:00-08:00"
+}
+variable "snapshot_retention_limit" { 
+  default = 7
 }
