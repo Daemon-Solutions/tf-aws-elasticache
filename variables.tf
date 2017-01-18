@@ -2,12 +2,6 @@ variable "vpc_id" {}
 
 variable "name" {}
 
-variable "cluster_id" {}
-
-variable "ami" { 
-	default = "ami-787a320b"
-}
-
 variable "subnets" {
   type = "list"
 }
@@ -40,6 +34,10 @@ variable "cache_nodes" {
   default = "1"
 }
 
-variable "snapshot_window" {}
+variable "snapshot_window" {
+  default = ""
+}
 
-variable "snapshot_retention_limit" {}
+variable "snapshot_retention_limit" {
+  default = ""
+}
