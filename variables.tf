@@ -11,7 +11,7 @@ variable "source_sgs" {
 }
 
 variable "instance_type" {
-  default = "cache.t2.micro"
+  default = "cache.m3.medium"
 }
 
 variable "port" {
@@ -32,4 +32,12 @@ variable "parameter_group" {
 
 variable "cache_nodes" {
   default = "1"
+}
+
+variable "snapshot_window" {
+  default = ""
+}
+
+variable "snapshot_retention_limit" {
+  default = ""
 }
