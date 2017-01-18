@@ -40,9 +40,6 @@ variable "cache_nodes" {
   default = "1"
 }
 
-variable "snapshot_window" { 
-  default = "01:00-08:00"
-}
-variable "snapshot_retention_limit" { 
-  default = 7
-}
+variable "snapshot_window" {}
+
+variable "snapshot_retention_limit" {}
