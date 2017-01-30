@@ -1,12 +1,14 @@
 variable "vpc_id" {}
 
-variable "name" {}
+variable "name" { default = "test" }
 
-variable "subnets" {
-  type = "list"
+variable "cluster_id" { default = "clusteridname" }
+
+variable "ami" { 
+	default = "ami-787a320b"
 }
 
-variable "source_sgs" {
+variable "subnets" {
   type = "list"
 }
 
@@ -14,6 +16,9 @@ variable "instance_type" {
   default = "cache.m3.medium"
 }
 
+variable "source_sgs" { 
+	type = "list"
+}
 variable "port" {
   default = "6379"
 }
@@ -34,10 +39,6 @@ variable "cache_nodes" {
   default = "1"
 }
 
-variable "snapshot_window" {
-  default = ""
-}
+variable "snapshot_window" {}
 
-variable "snapshot_retention_limit" {
-  default = ""
-}
+variable "snapshot_retention_limit" {}
