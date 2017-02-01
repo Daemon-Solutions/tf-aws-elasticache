@@ -6,7 +6,6 @@ resource "aws_security_group" "elasticache" {
   ingress {
     from_port       = "${var.port}"
     to_port         = "${var.port}"
-    security_groups = ["${var.source_sgs}"]
     protocol        = "tcp"
   }
 }
