@@ -4,7 +4,7 @@ variable "name" { default = "test" }
 
 variable "cluster_id" { default = "clusteridname" }
 
-variable "ami" { 
+variable "ami" {
 	default = "ami-787a320b"
 }
 
@@ -16,9 +16,6 @@ variable "instance_type" {
   default = "cache.m3.medium"
 }
 
-variable "source_sgs" { 
-	type = "list"
-}
 variable "port" {
   default = "6379"
 }
