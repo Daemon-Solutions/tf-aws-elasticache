@@ -1,8 +1,9 @@
 variable "vpc_id" {}
+variable "vpc_cidr" {}
 
-variable "name" { default = "test" }
+variable "name" { default = "" }
 
-variable "cluster_id" { default = "clusteridname" }
+variable "cluster_id" { default = "" }
 
 variable "ami" {
 	default = "ami-787a320b"
