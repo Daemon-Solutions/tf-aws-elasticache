@@ -16,8 +16,8 @@ module "elasticache" {
 
 The example will create a single node (t2.micro) Redis cluster running version
 2.8.24 using the default Redis 2.8 parameter group. A security group is created
-allowing access on the default engine port (default - Redis port 6379). The 
-expectation is that access will be via an instance in a VPC security group. 
+allowing access on the default engine port (default - Redis port 6379). The
+expectation is that access will be via an instance in a VPC security group.
 The cluster is created in asubnet group made up of the `subnets` variable.
 
 ## Available Variables
@@ -33,6 +33,6 @@ The cluster is created in asubnet group made up of the `subnets` variable.
 for Redis)  
 
 ## Outputs  
-`endpoint` - List of node objects (`id`, `address`, `port`,`az`)  
-`node_address` - Node address  
-`memcached_endpoint` - Memcached endpoint (not available with Redis engine)  
+`elasticache_cluster_redis_endpoint` - List of node objects (`id`, `address`, `port`,`az`)  
+`elasticache_cluster_node_address` - Node address  
+`elasticache_cluster_memcached_endpoint` - Memcached endpoint (not available with Redis engine)  
