@@ -33,6 +33,6 @@ The cluster is created in asubnet group made up of the `subnets` variable.
 for Redis)  
 
 ## Outputs  
-`elasticache_cluster_redis_endpoint` - List of node objects (`id`, `address`, `port`,`az`)  
+`elasticache_cluster_redis_cache_nodes_list` - List of node objects (`id`, `address`, `port`,`az`)  
 `elasticache_cluster_node_address` - Node address  
 `elasticache_cluster_memcached_endpoint` - Memcached endpoint (not available with Redis engine)  
