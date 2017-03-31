@@ -1,5 +1,5 @@
-output "elasticache_cluster_redis_endpoint" {
-  value = "${aws_elasticache_cluster.elasticache.cache_nodes}"
+output "elasticache_cluster_redis_cache_nodes_list" {
+  value = "${aws_elasticache_cluster.easticache.cache_nodes}"
 }
 
 output "elasticache_cluster_node_address" {
