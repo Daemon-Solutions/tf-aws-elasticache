@@ -30,8 +30,7 @@ The cluster is created in asubnet group made up of the `subnets` variable.
 `engine_version` - Engine version to use (defaults to 2.8.24)  
 `parameter_group` - Parameter group to use (defaults to default.redis2.8)  
 `cache_nodes` - Number of cache nodes (defaults to 1 it's only available option
-for Redis)
-`enabled` - Enable or disable the services with the use of count
+for Redis)  
 
 ## Outputs  
 `endpoint` - List of node objects (`id`, `address`, `port`,`az`)  
