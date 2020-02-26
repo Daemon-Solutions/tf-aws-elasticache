@@ -5,12 +5,23 @@ resource "aws_security_group" "elasticache" {
 }
 
 resource "aws_security_group_rule" "elasticache-in" {
+  count             = var.vpc_cidr != null ? 1 : 0
   type              = "ingress"
   protocol          = "tcp"
   from_port         = var.port
   to_port           = var.port
   security_group_id = aws_security_group.elasticache.id
   cidr_blocks       = [var.vpc_cidr]
+}
+
+resource "aws_security_group_rule" "elasticache-sgs-in" {
+  for_each                 = var.source_sgs
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = var.port
+  to_port                  = var.port
+  security_group_id        = aws_security_group.elasticache.id
+  source_security_group_id = each.value
 }
 
 resource "aws_elasticache_subnet_group" "main" {

@@ -31,16 +31,16 @@ expectation is that access will be via an instance in a VPC security group.
 The cluster is created in asubnet group made up of the `subnets` variable.
 
 ## Available Variables
-`name` - Name of the cluster
-`subnets` - List of subnets
-`vpc_id` - ID of the VPC to create the cluster in
+`name` - Name of the cluster  
+`subnets` - List of subnets   
+`vpc_id` - ID of the VPC to create the cluster in  
 `vpc_cidr` - The VPC CIDR. Used to create a security group granting access to the whole VPC CIDR unless source_sgs is specified.
 `source_sgs` - A list of security group ids to allow connections from to the Elasticache. If this is not specified the whole VPC CIDR will be granted access.
-`instance_type` - Instance type to use (defaults to t2.micro)
-`port` - Engine port to use (defaults to 6379)
-`engine` - Engine to use `redis` or `memcached` (defaults to Redis)
-`engine_version` - Engine version to use (defaults to 2.8.24)
-`parameter_group` - Parameter group to use (defaults to default.redis2.8)
+`instance_type` - Instance type to use (defaults to t2.micro)  
+`port` - Engine port to use (defaults to 6379)  
+`engine` - Engine to use `redis` or `memcached` (defaults to Redis)  
+`engine_version` - Engine version to use (defaults to 2.8.24)  
+`parameter_group` - Parameter group to use (defaults to default.redis2.8)  
 `cache_nodes` - Number of cache nodes (defaults to 1 it's only available option
 for Redis)
 

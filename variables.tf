@@ -6,6 +6,13 @@ variable "vpc_id" {
 variable "vpc_cidr" {
   description = "The CIDR block VPC specified in 'vpc_id' for targeting Security Group rules"
   type        = string
+  default     = null
+}
+
+variable "source_sgs" {
+  description = "Allows only the specified source security groups to connect to the Elasticache. This overrides the default behavior of allowing the whole VPC cidr to connect."
+  type        = set(string)
+  default     = []
 }
 
 variable "name" {
