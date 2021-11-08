@@ -2,6 +2,13 @@
 
 Spins up an ElastiCache cluster (defaults to Redis 2.8.19)
 
+## Terraform version compatibility
+
+| Module version    | Terraform version |
+|-------------------|-------------------|
+| 1.x.x             | 0.12.x            |
+| 0.x.x             | 0.11.x            |    
+
 ## Usage
 
 ```
@@ -16,8 +23,8 @@ module "elasticache" {
 
 The example will create a single node (t2.micro) Redis cluster running version
 2.8.24 using the default Redis 2.8 parameter group. A security group is created
-allowing access on the default engine port (default - Redis port 6379). The 
-expectation is that access will be via an instance in a VPC security group. 
+allowing access on the default engine port (default - Redis port 6379). The
+expectation is that access will be via an instance in a VPC security group.
 The cluster is created in asubnet group made up of the `subnets` variable.
 
 ## Available Variables
