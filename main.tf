@@ -34,3 +34,4 @@ resource "aws_elasticache_cluster" "elasticache" {
   tags = {
     Name = var.name
   }
+}
