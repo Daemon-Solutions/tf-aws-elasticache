@@ -67,6 +67,7 @@ variable "cache_nodes" {
   default     = 1
 }
 
+#The below does not work with all the Engines <-- TODO
 variable "snapshot_window" {
   description = "The daily time range (UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster"
   type        = string
