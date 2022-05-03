@@ -67,6 +67,7 @@ variable "cache_nodes" {
   default = 1
 }
 
+#TODO -- snapshots not required at the moment
 variable "snapshot_window" {
   description = "The daily time range (UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster"
   type = "string"
