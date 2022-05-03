@@ -16,7 +16,7 @@ resource "aws_security_group_rule" "elasticache-in" {
 resource "aws_elasticache_subnet_group" "main" {
   name        = var.name
   description = "Elasticache subnets for ${var.name}"
-  subnet_ids  = var.subnets
+  subnet_ids  = split(",",var.subnets)
 }
 
 resource "aws_elasticache_cluster" "elasticache" {

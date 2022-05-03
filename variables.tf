@@ -28,7 +28,7 @@ variable "ami" {
 
 variable "subnets" {
   description = "List of VPC Subnet IDs for the cache subnet group"
-  type        = list(string)
+  type        = string
 }
 
 variable "instance_type" {
