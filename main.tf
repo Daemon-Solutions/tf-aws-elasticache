@@ -29,8 +29,8 @@ resource "aws_elasticache_cluster" "elasticache" {
   parameter_group_name      = "${var.parameter_group}"
   subnet_group_name         = "${aws_elasticache_subnet_group.main.name}"
   security_group_ids        = ["${aws_security_group.elasticache.id}"]
-  snapshot_window           = "${var.snapshot_window}"
-  snapshot_retention_limit  = "${var.snapshot_retention_limit}"
+  #snapshot_window           = "${var.snapshot_window}"
+  #snapshot_retention_limit  = "${var.snapshot_retention_limit}"
   tags {
     Name = "${var.name}"
   }
