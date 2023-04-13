@@ -38,6 +38,7 @@ The cluster is created in asubnet group made up of the `subnets` variable.
 `parameter_group` - Parameter group to use (defaults to default.redis2.8)  
 `cache_nodes` - Number of cache nodes (defaults to 1 it's only available option
 for Redis)  
+`maintenance_window` - ElasticCache Maintenance Window
 
 ## Outputs  
 `endpoint` - List of node objects (`id`, `address`, `port`,`az`)  

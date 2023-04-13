@@ -80,3 +80,8 @@ variable "snapshot_retention_limit" {
   default     = 5
 }
 
+variable "maintenance_window" {
+  description = "ElastiCache Maintenance Windows"
+  type        = string
+  default     = "tue:22:00-tue:23:00"
+}
