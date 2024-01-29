@@ -11,7 +11,7 @@ resource "aws_security_group_rule" "elasticache-in" {
   protocol          = "tcp"
   from_port         = var.port
   to_port           = var.port
-  security_group_id = aws_security_group.elasticache.id
+  security_group_id = aws_security_group.elasticache[0].id
   cidr_blocks       = [var.vpc_cidr]
 }
 
@@ -31,8 +31,8 @@ resource "aws_elasticache_cluster" "elasticache" {
   port                 = var.port
   num_cache_nodes      = var.cache_nodes
   parameter_group_name = var.parameter_group
-  subnet_group_name    = aws_elasticache_subnet_group.main.name
-  security_group_ids   = [aws_security_group.elasticache.id]
+  subnet_group_name    = aws_elasticache_subnet_group.main[0].name
+  security_group_ids   = [aws_security_group.elasticache[0].id]
   maintenance_window   = var.maintenance_window
   #snapshot_window          = var.snapshot_window
   #snapshot_retention_limit = var.snapshot_retention_limit
