@@ -1,12 +1,12 @@
 resource "aws_security_group" "elasticache" {
-  count       = "${var.envname == "laguna-live" ? 1 : 0}"
+  count       = var.name == "laguna-live" ? 1 : 0
   name        = var.name
   description = "Elasticache security group ${var.name}"
   vpc_id      = var.vpc_id
 }
 
 resource "aws_security_group_rule" "elasticache-in" {
-  count             = "${var.envname == "laguna-live" ? 1 : 0}"
+  count             = var.name == "laguna-live" ? 1 : 0
   type              = "ingress"
   protocol          = "tcp"
   from_port         = var.port
@@ -16,14 +16,14 @@ resource "aws_security_group_rule" "elasticache-in" {
 }
 
 resource "aws_elasticache_subnet_group" "main" {
-  count       = "${var.envname == "laguna-live" ? 1 : 0}"
+  count       = var.name == "laguna-live" ? 1 : 0
   name        = var.name
   description = "Elasticache subnets for ${var.name}"
   subnet_ids  = split(",", var.subnets)
 }
 
 resource "aws_elasticache_cluster" "elasticache" {
-  count                = "${var.envname == "laguna-live" ? 1 : 0}"
+  count                = var.name == "laguna-live" ? 1 : 0
   cluster_id           = var.name
   engine               = var.engine
   engine_version       = var.engine_version
